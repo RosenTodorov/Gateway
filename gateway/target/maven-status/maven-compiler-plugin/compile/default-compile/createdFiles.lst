@@ -1,0 +1,5 @@
+com\gatewayapp\gateway\SheduleConfiguration.class
+com\gatewayapp\services\RateCollectorService.class
+com\gatewayapp\entities\RequestData.class
+com\gatewayapp\gateway\GatewayApplication.class
+com\gatewayapp\gateway\EventShedule.class
