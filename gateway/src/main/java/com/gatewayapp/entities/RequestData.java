@@ -13,31 +13,29 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 @Table(name = "requestdata")
 public class RequestData implements Serializable {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private Long id;
-	
+	private long id;
+
 	@Column(nullable = false)
 	@NotEmpty
 	private String serviceName;
-	
+
 	@Column(unique = true, nullable = false)
 	@NotEmpty
 	private String requestId;
-	
+
 	@Column(nullable = false)
-	@NotEmpty
 	private Long timestamp;
-	
+
 	@Column(unique = true, nullable = false)
-	@NotEmpty
 	private Long client;
 
 	public RequestData() {
 	}
-	
+
 	public RequestData(String serviceName, String requestId, Long timestamp, Long client) {
 		super();
 		this.serviceName = serviceName;

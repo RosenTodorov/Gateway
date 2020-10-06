@@ -3,10 +3,14 @@ package com.gatewayapp.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.gatewayapp.entities.RequestData;
 import com.gatewayapp.repositories.IRequestDataRepository;
 
+@Component
+@Service
 public class ExternalService implements IExternalService {
 	
 	private final IRequestDataRepository requestDataRepository;
