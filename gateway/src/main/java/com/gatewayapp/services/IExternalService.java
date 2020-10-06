@@ -8,4 +8,6 @@ public RequestData save(RequestData data);
 
 public boolean requestExists(RequestData data);
 
+public RequestData addRequestData(String serviceName, String requestId, Long timestamp, Long client);
+
 }

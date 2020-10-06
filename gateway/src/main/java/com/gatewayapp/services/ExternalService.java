@@ -32,4 +32,14 @@ public class ExternalService implements IExternalService {
 		
 		return requestDataRepository.exists(example);
 	}
+
+	@Override
+	public RequestData addRequestData(String serviceName, String requestId, Long timestamp, Long client) {
+		RequestData data = new RequestData();
+		data.setServiceName(serviceName);
+		data.setRequestId(requestId);
+		data.setTime(timestamp);
+		data.setClient(client);
+		return data;
+	}
 }

@@ -31,26 +31,17 @@ public class ServiceController {
 	}
 
 	@PostMapping(value = "/json_api/current", consumes = "application/json", produces = "application/json")
-	public CurrentResponse addDataa(@RequestBody CurrentRequest request) {
-		RequestData data = addRequestData(serviceName, request.getRequestId(), request.getTimestamp(),
+	public CurrentResponse triggerLastCurrencyData(@RequestBody CurrentRequest request) {
+		RequestData data = externalService.addRequestData(serviceName, request.getRequestId(), request.getTimestamp(),
 				request.getClient());
 		if (externalService.requestExists(data)) {
 			logger.warn("Request {} exists!", data.toString());
-		 // return error
+		 // return system error
 		}
 		RequestData saved = externalService.save(data);
 		logger.info("RequestData {} added!", saved.toString());
 
 		CurrentResponse currentResponse = new Gson().fromJson(lastData, CurrentResponse.class);
 		return currentResponse;
-	}
-
-	private RequestData addRequestData(String serviceName, String requestId, Long timestamp, Long client) {
-		RequestData data = new RequestData();
-		data.setServiceName(serviceName);
-		data.setRequestId(requestId);
-		data.setTime(timestamp);
-		data.setClient(client);
-		return data;
 	}
 }
